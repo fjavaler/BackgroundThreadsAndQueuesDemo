@@ -11,7 +11,7 @@ import SwiftUI
 struct BackgroundThreadsAndQueuesDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BackgroundThreadView()
         }
     }
 }
