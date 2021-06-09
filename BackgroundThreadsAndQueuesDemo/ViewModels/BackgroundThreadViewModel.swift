@@ -14,6 +14,7 @@ class BackgroundThreadViewModel: ObservableObject {
   
   func fetchData() {
     
+    // Creates a new background thread.
     DispatchQueue.global(qos: .background).async {
       
       let newData = self.downloadData()
@@ -21,6 +22,7 @@ class BackgroundThreadViewModel: ObservableObject {
       print("Check 1: \(Thread.isMainThread)")
       print("Check 1: \(Thread.current)")
       
+      // This line affects the UI, so we need to jump back to the main thread and run it there.
       DispatchQueue.main.async {
         self.dataArray = newData
         print("Check 2: \(Thread.isMainThread)")
